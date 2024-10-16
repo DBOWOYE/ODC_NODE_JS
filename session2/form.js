@@ -1,42 +1,40 @@
 let content = document.querySelector(".container")
-
-let titre = document.createElement('h5')
-titre.innerText = "FORMULAIRE DE CREATION"
-titre.setAttribute("class", "mt-2")
-
-content.appendChild(titre)
+const form = document.createElement("form");
 
 
-const prescrption = createPrescription()
-let bt_enregistrer = createButton("Enregistrer")
+const btn_plus = document.getElementById("btnAjouter");
+let i = 1;
 
-let form = document.createElement("form")
+btn_plus.addEventListener('click', () => {
+    createPrescription();
+    
+    // let p = document.createElement("p")
+    // p.innerText = "Bonjour ODC " + i + " fois"
+    // i++;
+    
 
-form.appendChild(prescrption)
+    // content.appendChild(p)
+    
+});
 
-content.appendChild(form)
-
-
-
-
-
+content.appendChild(form);
 
 function createPrescription(){
-
     const prescription = document.createElement("div");
     prescription.style = "display: flex; align-items: end; gap: 3px;"
 
 
-    let nom = createFormElement("Nom complet");
-    let quantite = createFormElement("Quantite", "number");
-    let posologie = createFormElement("Posologie", "text");
-    let description = createFormElement("Description", "text");
+    const nom = createFormElement("Nom complet");
+    const quantite = createFormElement("Quantite", "number");
+    const posologie = createFormElement("Posologie", "text");
+    const description = createFormElement("Description", "text");
 
     prescription.appendChild(nom)
     prescription.appendChild(quantite)
     prescription.appendChild(posologie)
     prescription.appendChild(description)
-    prescription.appendChild(bt_enregistrer)
+
+    form.appendChild(prescription)
 }
 
 
